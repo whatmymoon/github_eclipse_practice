@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- xmlns:context="http://www.springframework.org/schema/context"
+		 xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+		 위 두개는 beans에 추가 하고 아래는 아래와같이 추가해줍니다.
+	
+	<context:annotation-config/> Autowired 이노테이션 쓸때 xml파일에 추가해야하는 것 -->
+	
+	<context:annotation-config/>
+	
+	<bean id="dbuserinfo" class="com.ezen.word.util.DataBaseUserInfo">
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="id" value="scott"></property>
+		<property name="pw" value="tiger"></property>
+		<property name="driver" value="oracle.jdbc.driver.OracleDriver"></property>
+	</bean>
+	
+	<bean id="dbmanager" class="com.ezen.word.util.DataBaseManager"></bean>
+	
+	<!-- 
+	<bean id="dbmanager" class="com.ezen.word.util.DataBaseManager">
+		<constructor-arg ref="dbuserinfo"></constructor-arg> -> 이것을 쓰지 않고 AutoWired를 클래스에 넣어서 자동 주입 될 수 있게 해줌.
+	</bean>
+	-->
+	
+	<bean id="worddao" class="com.ezen.word.dao.WordSetDao"></bean>
+	
+	<bean id="insertService" class="com.ezen.word.service.WordInsertService"></bean>
+	
+	<bean id="selectAllService" class="com.ezen.word.service.WordSelectAllService"></bean>
+	
+	<bean id="searchService" class="com.ezen.word.service.WordSearchService"></bean>
+	
+</beans>

@@ -4,9 +4,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Spring</groupId>
-	<artifactId>Sp00</artifactId>
+	<artifactId>Sp05</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name></name>
+	<name>SpringEx05</name>
 
 	<repositories>
 		<repository>
