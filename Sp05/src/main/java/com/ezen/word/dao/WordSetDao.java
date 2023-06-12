@@ -95,7 +95,7 @@ public class WordSetDao {
 	public WordSet searchWord(String input) {
 		
 		WordSet ws = null;
-		String sql = "select * from wordset where wordkey = ?";
+		String sql = "select * from wordset where wordkey like '%'||?||'%'";
 		con = dbm.getConnection();
 		
 		try {
